@@ -3,13 +3,18 @@ using GameStore.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 🔹 PORTA dinâmica (Render)
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://*:{port}");
+
+// 🔹 CORS (local + produção)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy =>
         {
             policy
-                .WithOrigins("http://localhost:5173")
+                .AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
