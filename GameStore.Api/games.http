@@ -1,0 +1,33 @@
+GET http://localhost:5087/games
+
+###
+GET http://localhost:5087/games/1
+
+###
+POST http://localhost:5087/games
+Content-Type: application/json
+
+{
+    "nome": "TEST GAME",
+    "generoid": 1,
+    "preco": 9.99,
+    "dataLancamento": "2025-07-18"
+}
+
+###
+PUT http://localhost:5087/games/2
+Content-Type: application/json
+
+{
+    "nome": "EA Fc 2026 Ultimate Edition",
+    "generoid": 5,
+    "preco": 99.99,
+    "dataLancamento": "2025-07-18"
+}
+
+###
+DELETE http://localhost:5087/games/3
+
+###
+GET http://localhost:5087/generos
+
